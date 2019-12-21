@@ -2,8 +2,12 @@ import React from 'react';
 import styles from './index.css';
 // eslint-disable-next-line import/named
 import { formatMessage } from 'umi-plugin-react/locale';
+import { Helmet } from 'react-helmet';
 const Index: React.FC = () => (
   <div className={styles.normal}>
+    <Helmet>
+      <title>test</title>
+    </Helmet>
     <div className={styles.welcome} />
     <ul className={styles.list}>
       <li>

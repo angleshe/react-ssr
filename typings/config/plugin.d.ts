@@ -1,7 +1,7 @@
 // This file is created by egg-ts-helper@1.25.6
 // Do not modify this file!!!!!!!!!
 
-import { EggPluginItem } from 'egg';
+import 'egg';
 import 'egg-onerror';
 import 'egg-session';
 import 'egg-i18n';
@@ -16,7 +16,7 @@ import 'egg-jsonp';
 import 'egg-view';
 import 'egg-view-nunjucks';
 import 'egg-view-assets';
-
+import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {
     onerror?: EggPluginItem;

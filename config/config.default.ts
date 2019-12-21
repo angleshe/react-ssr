@@ -15,6 +15,21 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
+  config.assets = {
+    publicPath: '/public/',
+    devServer: {
+      debug: true,
+      command: 'umi dev',
+      port: 8000,
+      env: {
+        APP_ROOT: process.cwd() + '/app/web',
+        BROWSER: 'none',
+        ESLINT: 'none',
+        SOCKET_SERVER: 'http://127.0.0.1:8000',
+        PUBLIC_PATH: 'http://127.0.0.1:8000',
+      },
+    },
+  };
   // the return config will combines to EggAppConfig
   return {
     ...config,

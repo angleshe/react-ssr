@@ -19,30 +19,65 @@
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
     "lint": "tslint --project . -c tslint.json",
-    "clean": "ets clean"
+    "clean": "ets clean",
+    "umi:dev": "umi dev",
+    "umi:build": "cross-env UMI_ENV=prod umi build",
+    "build": "npm run umi:build"
   },
   "dependencies": {
+    "antd": "^3.19.5",
+    "dva": "^2.6.0-beta.6",
     "egg": "^2.6.1",
-    "egg-scripts": "^2.6.0"
+    "egg-scripts": "^2.6.0",
+    "egg-view-assets": "^1.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^23.3.12",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-test-renderer": "^16.0.3",
     "@types/supertest": "^2.0.0",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
+    "babel-eslint": "^9.0.0",
     "cz-conventional-changelog": "^3.0.2",
     "cz-customizable": "^6.2.0",
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "husky": "^3.1.0",
+    "lint-staged": "^7.2.2",
+    "react-test-renderer": "^16.7.0",
     "tslib": "^1.9.0",
-    "tslint": "^5.0.0",
     "tslint-config-egg": "^1.0.0",
-    "typescript": "^3.0.0"
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.0",
+    "umi": "^2.9.0",
+    "umi-plugin-react": "^1.8.0",
+    "umi-types": "^0.3.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8.9.0"
@@ -67,6 +102,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }  
+    }
   }
 }

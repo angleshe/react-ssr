@@ -10,7 +10,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-react-ssr",
     "stop": "egg-scripts stop --title=egg-server-react-ssr",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --sticky",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
@@ -30,8 +30,10 @@
     "egg": "^2.6.1",
     "egg-scripts": "^2.6.0",
     "egg-view-assets": "^1.6.0",
+    "egg-view-nunjucks": "^2.2.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "umi-server": "^1.1.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -43,6 +45,7 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
     "@types/supertest": "^2.0.0",
+    "@umijs/plugin-prerender": "^1.5.8",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "babel-eslint": "^9.0.0",
@@ -52,6 +55,7 @@
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
     "eslint": "^5.4.0",
+    "eslint-config-egg": "^8.0.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-umi": "^1.4.0",
     "eslint-plugin-flowtype": "^2.50.0",

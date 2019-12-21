@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.css';
-import { formatMessage } from 'umi-plugin-locale';
+import { formatMessage } from 'umi-plugin-react/locale';
 export default function() {
   return (
     <div className={styles.normal}>
@@ -10,6 +10,7 @@ export default function() {
         <li>
           <a href="https://umijs.org/guide/getting-started.html">
             {formatMessage({ id: 'index.start' })}
+            我是真的服jjbbjj
           </a>
         </li>
       </ul>

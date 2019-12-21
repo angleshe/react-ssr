@@ -1,0 +1,5 @@
+# production
+/dist
+/.vscode
+/node_modules/
+/.eslintrc.js

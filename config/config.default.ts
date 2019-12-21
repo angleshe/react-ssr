@@ -1,6 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
-
-export default (appInfo: EggAppInfo) => {
+export default (appInfo: EggAppInfo): PowerPartial<EggAppConfig> => {
   const config = {} as PowerPartial<EggAppConfig>;
 
   // override config from framework / plugin
@@ -12,12 +11,37 @@ export default (appInfo: EggAppInfo) => {
 
   // add your special config in here
   const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`
+  };
+  // locale
+  config.i18n = {
+    defaultLocale: 'zh-CN'
   };
 
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.html': 'nunjucks'
+    }
+  };
+  config.assets = {
+    publicPath: '/public/',
+    devServer: {
+      debug: true,
+      command: 'umi dev',
+      port: 8000,
+      env: {
+        APP_ROOT: process.cwd() + '/app/web',
+        BROWSER: 'none',
+        ESLINT: 'none',
+        SOCKET_SERVER: 'http://127.0.0.1:8000',
+        PUBLIC_PATH: 'http://127.0.0.1:8000'
+      }
+    }
+  };
   // the return config will combines to EggAppConfig
   return {
     ...config,
-    ...bizConfig,
+    ...bizConfig
   };
 };

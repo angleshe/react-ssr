@@ -1,6 +1,23 @@
 module.exports = {
-  extends: ['eslint-config-egg', 'plugin:prettier/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  extends: ['eslint-config-ts', 'plugin:prettier/recommended'],
+  parserOptions: {
+    project: './tsconfig.json'
+  },
   rules: {
-    'prettier/prettier': 'error'
+    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/interface-name-prefix': [
+      'error',
+      { prefixWithI: 'always', allowUnderscorePrefix: true }
+    ],
+    '@typescript-eslint/class-name-casing': [
+      'error',
+      {
+        allowUnderscorePrefix: true
+      }
+    ],
+    '@typescript-eslint/unbound-method': 0,
+    'comma-dangle': ['error', 'never']
   }
 };

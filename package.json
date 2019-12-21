@@ -18,11 +18,18 @@
     "tsc": "ets && tsc -p tsconfig.json",
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
-    "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
     "umi:dev": "umi dev",
     "umi:build": "cross-env UMI_ENV=prod umi build",
-    "build": "npm run umi:build"
+    "build": "npm run umi:build",
+    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./app && npm run lint:style",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./app",
+    "lint:prettier": "check-prettier lint",
+    "lint:style": "stylelint --fix \"app/**/*.less\" --syntax less",
+    "prettier": "prettier -c --write \"**/*\""
   },
   "dependencies": {
     "antd": "^3.19.5",
@@ -45,6 +52,8 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-test-renderer": "^16.0.3",
     "@types/supertest": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
     "@umijs/plugin-prerender": "^1.5.8",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
@@ -54,9 +63,10 @@
     "egg-bin": "^4.11.0",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
-    "eslint": "^5.4.0",
+    "eslint": "^6.8.0",
     "eslint-config-egg": "^8.0.0",
     "eslint-config-prettier": "^6.7.0",
+    "eslint-config-ts": "^4.0.1",
     "eslint-config-umi": "^1.4.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
@@ -67,20 +77,13 @@
     "lint-staged": "^7.2.2",
     "react-test-renderer": "^16.7.0",
     "tslib": "^1.9.0",
-    "tslint-config-egg": "^1.0.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^3.6.0",
     "typescript": "^3.0.0",
     "umi": "^2.9.0",
     "umi-plugin-react": "^1.8.0",
     "umi-types": "^0.3.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "tslint --fix",
-      "git add"
-    ],
-    "*.{js,jsx}": [
+    "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
       "git add"
     ]
@@ -107,7 +110,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint-staged"
     }
   }
 }

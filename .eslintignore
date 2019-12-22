@@ -5,3 +5,4 @@
 /.eslintrc.js
 /app/public/
 /typings/
+**/*.d.ts

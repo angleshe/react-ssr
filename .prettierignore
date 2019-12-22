@@ -2,6 +2,7 @@
 **/*.svg
 **/*.ejs
 **/*.html
+**/*.d.ts
 package.json
 .umi
 .umi-production

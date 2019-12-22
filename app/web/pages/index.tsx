@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.css';
+import styles from './index.less';
 // eslint-disable-next-line import/named
 import { formatMessage } from 'umi-plugin-react/locale';
 import { Helmet } from 'react-helmet';

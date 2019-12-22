@@ -1,4 +1,6 @@
-import { IConfig } from 'umi-types';
+import { IConfig, IWebpackChainConfig } from 'umi-types';
+import LessFunc from 'less-plugin-functions';
+import path from 'path';
 
 // ref: https://umijs.org/config/
 const config: IConfig = {
@@ -6,6 +8,10 @@ const config: IConfig = {
   outputPath: '../public',
   treeShaking: true,
   publicPath: 'http://localhost:8000/',
+  lessLoaderOptions: {
+    javascriptEnabled: true,
+    plugins: [new LessFunc()]
+  },
   routes: [
     {
       path: '/',
@@ -39,7 +45,20 @@ const config: IConfig = {
       }
     ],
     '@umijs/plugin-prerender'
-  ]
+  ],
+  chainWebpack: (config: IWebpackChainConfig): void => {
+    config.module
+      .rule('less')
+      .test(/\.less$/)
+      .use('style-resources-loader')
+      .loader('style-resources-loader')
+      .options({
+        patterns: [
+          path.resolve(__dirname, './config.less'),
+          path.resolve(__dirname, '../utils/utils.less')
+        ]
+      });
+  }
 };
 
 export default config;

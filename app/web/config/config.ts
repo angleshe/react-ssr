@@ -1,4 +1,5 @@
 import { IConfig, IWebpackChainConfig } from 'umi-types';
+import routes from './routes';
 import postcssPxtorem from 'postcss-pxtorem';
 import LessFunc from 'less-plugin-functions';
 import path from 'path';
@@ -20,19 +21,10 @@ const config: IConfig = {
       minPixelValue: 5
     })
   ],
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index',
-      routes: [
-        {
-          path: '/',
-          redirect: '/home'
-        },
-        { path: '/home', component: '../pages/home/index' }
-      ]
-    }
-  ],
+  alias: {
+    web: path.resolve(__dirname, '../')
+  },
+  routes,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [

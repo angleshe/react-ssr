@@ -20,10 +20,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@/*": ["app/*"]
+      "@/*": ["app/*"],
+      "web/*": ["app/web/*"]
     },
     "allowSyntheticDefaultImports": true
   },
+  "include": [
+    "app"
+  ],
   "exclude": [
     "app/public",
     "app/views",

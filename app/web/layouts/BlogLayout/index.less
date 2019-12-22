@@ -1,0 +1,30 @@
+.blog-layout {
+  .header {
+    .wh(100%, 110);
+    background: @mainColor url('../../assets/blog_banner@2x.png') repeat;
+  }
+  .container {
+    max-width: @maxContainerWidth;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    .main-container {
+      flex: 1;
+      margin-top: 20px;
+      background-color: #fff;
+    }
+    .side-bar {
+      width: 310px;
+      margin-left: 18px;
+      flex-shrink: 0;
+      position: static;
+      top: 20px;
+      .bar-item {
+        background-color: #fff;
+        &:not(:nth-last-child(1)) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

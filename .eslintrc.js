@@ -20,6 +20,8 @@ module.exports = {
     ],
     '@typescript-eslint/unbound-method': 0,
     'comma-dangle': ['error', 'never'],
+    'import/no-unresolved': 0,
+    'import/named': 0,
     'react/prop-types': ['error', { ignore: ['children'] }],
     'jsx-a11y/heading-has-content': 0
   }

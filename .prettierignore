@@ -8,3 +8,4 @@ package.json
 .umi-production
 /node_modules
 /typings/
+/app/web/public/

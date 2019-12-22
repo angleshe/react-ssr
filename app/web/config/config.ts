@@ -1,4 +1,5 @@
 import { IConfig, IWebpackChainConfig } from 'umi-types';
+import postcssPxtorem from 'postcss-pxtorem';
 import LessFunc from 'less-plugin-functions';
 import path from 'path';
 
@@ -12,11 +13,24 @@ const config: IConfig = {
     javascriptEnabled: true,
     plugins: [new LessFunc()]
   },
+  extraPostCSSPlugins: [
+    postcssPxtorem({
+      rootValue: 75,
+      propList: ['*', '!font*'],
+      minPixelValue: 5
+    })
+  ],
   routes: [
     {
       path: '/',
       component: '../layouts/index',
-      routes: [{ path: '/', component: '../pages/index' }]
+      routes: [
+        {
+          path: '/',
+          redirect: '/home'
+        },
+        { path: '/home', component: '../pages/home/index' }
+      ]
     }
   ],
   plugins: [
@@ -27,12 +41,27 @@ const config: IConfig = {
         antd: true,
         dva: true,
         dynamicImport: { webpackChunkName: true },
-        title: 'react-ssr',
         dll: true,
         locale: {
           baseNavigator: false,
           useLocalStorage: false
         },
+        metas: [
+          { name: 'apple-mobile-web-app-capable', content: 'yes' },
+          { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+          { name: 'format-detection', content: 'telephone=no' },
+          { name: 'format-detection', content: 'email=no' },
+          {
+            name: 'viewport',
+            content:
+              'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'
+          }
+        ],
+        headScripts: [
+          {
+            src: '<%= PUBLIC_PATH %>flexible.min.js'
+          }
+        ],
         routes: {
           exclude: [
             /models\//,

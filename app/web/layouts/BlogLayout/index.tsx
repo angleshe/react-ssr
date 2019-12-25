@@ -10,7 +10,7 @@ const BlogLayout: React.FC = (props) => (
       <div className={styles['main-container']}>{props.children}</div>
       <ul className={styles['side-bar']}>
         <li className={styles['bar-item']}>
-          <User />
+          <User nikckname="angle" faceImg="" />
         </li>
         <li className={styles['bar-item']}>
           <Advertisement />

@@ -2,18 +2,39 @@ import styles from './user.less';
 import { formatMessage } from 'umi-plugin-react/locale';
 import React from 'react';
 /**
+ * @description user组件接口
+ * @author angle
+ * @date 2019-12-23
+ * @export
+ * @interface IUser
+ */
+export interface IUser {
+  /**
+   * @description 头像
+   * @type {string}
+   * @memberof IUser
+   */
+  faceImg: string;
+  /**
+   * @description 昵称
+   * @type {string}
+   * @memberof IUser
+   */
+  nikckname: string;
+}
+/**
  * 用户信息组件
  */
-const user: React.FC = () => (
+const user: React.FC<IUser> = (prop) => (
   <div className={styles.user}>
     <div className={styles.face}>
       <img
-        src={require('web/assets/user.png')}
+        src={prop.faceImg || require('web/assets/user.png')}
         alt={formatMessage({ id: 'user.faceImage' })}
         className={styles.img}
       />
     </div>
-    <div className={styles.nickname}>angle</div>
+    <div className={styles.nickname}>{prop.nikckname}</div>
     <ul className={styles.info}>
       <li className={styles['info-line']}>我们写的不只是代码</li>
       <li className={styles['info-line']}>而是我们读过的书</li>

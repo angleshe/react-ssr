@@ -13,7 +13,11 @@ const BlogLayout: React.FC = (props) => (
           <User nikckname="angle" faceImg="" />
         </li>
         <li className={styles['bar-item']}>
-          <Advertisement />
+          <Advertisement
+            src={require('web/assets/home_blog_guangtu@2x.png')}
+            url="https://www.baidu.com"
+            alt="百度"
+          />
         </li>
       </ul>
     </div>

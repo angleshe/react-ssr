@@ -26,6 +26,7 @@ export interface IAdvertisementProps {
  */
 const advertisement: React.FC<IAdvertisementProps> = (props) => (
   <div className={styles.advertisement}>
+    {/* link不能链接到外部页面??? */}
     <a href={props.url} className={styles.link}>
       <img
         src={props.src}

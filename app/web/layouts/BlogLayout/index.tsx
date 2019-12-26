@@ -2,6 +2,8 @@ import React from 'react';
 import User from './component/user';
 import styles from './index.less';
 import Advertisement from './component/advertisement';
+import { BackTop } from 'antd';
+import FontIcon, { FontIconType } from 'web/components/FontIcon';
 
 const BlogLayout: React.FC = (props) => (
   <div className={styles['blog-layout']}>
@@ -21,6 +23,9 @@ const BlogLayout: React.FC = (props) => (
         </li>
       </ul>
     </div>
+    <BackTop className={styles['side-tools']}>
+      <FontIcon type={FontIconType.topping} className={styles['go-to-icon']} />
+    </BackTop>
   </div>
 );
 

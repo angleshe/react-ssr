@@ -20,13 +20,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@/*": ["app/*"],
       "web/*": ["app/web/*"]
     },
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "app"
+    "app",
+    "config",
+    "test",
+    "typings"
   ],
   "exclude": [
     "app/public",

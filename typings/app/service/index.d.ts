@@ -2,10 +2,14 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportTest from '../../../app/service/Test';
+import ExportBaseService from '../../../app/service/baseService';
+import ExportBlogBloggerInfoSelectService from '../../../app/service/blog/bloggerInfoSelectService';
 
 declare module 'egg' {
   interface IService {
-    test: ExportTest;
+    baseService: ExportBaseService;
+    blog: {
+      bloggerInfoSelectService: ExportBlogBloggerInfoSelectService;
+    }
   }
 }

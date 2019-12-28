@@ -13,6 +13,10 @@ const plugin: EggPlugin = {
   i18n: {
     enable: true,
     package: 'egg-i18n'
+  },
+  mysql: {
+    enable: true,
+    package: 'egg-mysql'
   }
 };
 

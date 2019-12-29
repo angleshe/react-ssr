@@ -14,9 +14,9 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-i18n'
   },
-  mysql: {
+  sequelize: {
     enable: true,
-    package: 'egg-mysql'
+    package: 'egg-sequelize-ts'
   }
 };
 

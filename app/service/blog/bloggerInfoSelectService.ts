@@ -1,19 +1,21 @@
 import { BaseService } from '../baseService';
 import { IBloggerInfo } from '../../dto/BloggerInfoDto';
 import { ResCode } from '../../dto/ResponseMessageModel';
+import { User } from '../../model/user';
 export default class BloggerSelectService extends BaseService<IBloggerInfo> {
   protected async ExecuteMethod(): Promise<void> {
-    const res = await this.app.mysql.get('ad_user', {
-      IsAdministrator: 1
+    const res: User | null = await this.app.model.User.find({
+      where: {
+        isAdmin: true
+      }
     });
-    console.log(res);
-    if (!res) {
+    if (res === null) {
       this.setMesResult(ResCode.noData);
     } else {
       this.setResult({
-        faceImg: res.Picture,
-        uid: res.Id,
-        nickname: res.UserName
+        faceImg: res.faceImg,
+        nickname: res.nickname,
+        uid: res.id
       });
     }
   }

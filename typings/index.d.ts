@@ -1,8 +1,3 @@
-/// <reference path="./mysql.d.ts" />
 import 'egg';
-
-declare module 'egg' {
-  interface Application {
-    mysql: mysql;
-  }
-}
+import 'egg-sequelize-ts';
+declare module 'egg'

@@ -39,16 +39,27 @@ export default (appInfo: EggAppInfo): PowerPartial<EggAppConfig> => {
       }
     }
   };
-  config.mysql = {
-    client: {
-      host: 'localhost',
-      port: '3306',
-      password: 'anqishe',
-      database: 'react_blog',
-      user: 'root'
-    },
-    app: true,
-    agent: false
+  // config.mysql = {
+  //   client: {
+  //     host: 'localhost',
+  //     port: '3306',
+  //     password: 'anqishe',
+  //     database: 'react_blog',
+  //     user: 'root'
+  //   },
+  //   app: true,
+  //   agent: false
+  // };
+  config.sequelize = {
+    dialect: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    database: 'dev_blog',
+    username: 'root',
+    password: 'anqishe',
+    define: {
+      freezeTableName: true
+    }
   };
   // the return config will combines to EggAppConfig
   return {

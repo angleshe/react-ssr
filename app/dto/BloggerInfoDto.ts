@@ -8,5 +8,5 @@
 export interface IBloggerInfo {
   nickname: string;
   uid: number;
-  faceImg: string;
+  faceImg?: string;
 }

@@ -1,5 +1,5 @@
 import { Service } from 'egg';
-import { IResponseMessage, ResCode } from '../dto/ResponseMessageModel';
+import { IResponseMessage, ResCode } from '@/dto/ResponseMessageModel';
 import _ from 'lodash';
 /**
  * @description 服务基础抽象类,所有服务类必须继承实现该类

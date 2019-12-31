@@ -10,9 +10,7 @@ import {
   Default,
   Comment
 } from 'sequelize-typescript';
-@Table({
-  modelName: 'User'
-})
+@Table
 export class User extends Model<User> {
   /**
    * @description uid

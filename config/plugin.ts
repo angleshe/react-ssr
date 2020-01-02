@@ -1,4 +1,5 @@
 import 'tsconfig-paths/register';
+import 'reflect-metadata';
 import { EggPlugin } from 'egg';
 
 const plugin: EggPlugin = {

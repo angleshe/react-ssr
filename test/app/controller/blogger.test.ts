@@ -5,7 +5,7 @@ describe('test/controller/blogger', () => {
     it('路由', async () => {
       await app
         .httpRequest()
-        .get('/api/getBloggerInfo')
+        .get('/api/blogger/getBloggerInfo')
         .expect(200);
     });
   });

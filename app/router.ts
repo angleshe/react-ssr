@@ -1,7 +1,8 @@
 import { Application } from 'egg';
+import { bindRouterList } from '@/decorator/router.decorator';
 
 export default (app: Application): void => {
   const { controller, router } = app;
-  router.get('/api/getBloggerInfo', controller.api.blogger.getBloggerInfo);
+  bindRouterList(app);
   router.get('*', controller.home.index);
 };

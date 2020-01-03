@@ -14,7 +14,7 @@ export interface IUser {
    * @type {string}
    * @memberof IUser
    */
-  faceImg: string;
+  faceImg?: string;
   /**
    * @description 昵称
    * @type {string}

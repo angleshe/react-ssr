@@ -15,5 +15,10 @@ export default {
   errorRequestCode504: '网关超时。',
   errorRequestMsg: '请求错误 {code}: {url}',
   errorRequestOther: '您的网络发生异常，无法连接服务器!',
-  errorRequestOtherMsg: '网络异常'
+  errorRequestOtherMsg: '网络异常',
+  'error404.title': '非常抱歉你要访问的页面掉失了',
+  'error404.info': '找不到此页面！',
+  'error500.title': '服务器维修中，找不到您请求的网页',
+  'error500.info': '出错啦...',
+  'error.goHome': '返回首页'
 };

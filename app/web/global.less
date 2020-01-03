@@ -1,9 +1,24 @@
 @import './config/config.less';
+@import './utils/utils.less';
 @import './utils/reset.less';
 body {
   background-color: @backgroundColor;
   color: @fontColor;
   #root {
     font-size: @fontSize;
+  }
+  .main-btn {
+    background-color: #FBB52E;
+    .wh(90Px, 40Px);
+    border-radius: 3px;
+    &:hover {
+      background-color: @mainColor;
+    }
+  }
+  a {
+    &.main-btn {
+      text-align: center;
+      line-height: 40Px;
+    }
   }
 }

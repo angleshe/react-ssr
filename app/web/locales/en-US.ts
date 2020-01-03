@@ -18,5 +18,10 @@ export default {
   errorRequestCode504: 'Gateway timed out.',
   errorRequestMsg: 'Request error {code}: {url}',
   errorRequestOther: 'Your network is abnormal, unable to connect to the server!',
-  errorRequestOtherMsg: 'Network anomaly'
+  errorRequestOtherMsg: 'Network anomaly',
+  'error404.title': "I'm sorry that the page you're going to visit is missing",
+  'error404.info': "Can't find this page!",
+  'error500.title': 'The page you requested could not be found during server repair',
+  'error500.info': 'error...',
+  'error.goHome': 'go home'
 };

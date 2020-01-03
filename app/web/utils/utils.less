@@ -5,7 +5,7 @@
  * @return {number} 带单位的数值
  */
 .function-add-unit(@num, @unit: px) {
-  return: if((isnumber(@num) and not(ispercentage(@num))), unit(@num, @unit), @num);
+  return: if(get-unit(@num)=get-unit(0), unit(@num, @unit), @num);
 }
 /**
  * 删除单位

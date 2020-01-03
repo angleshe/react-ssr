@@ -21,7 +21,7 @@
     "skipDefaultLibCheck": true,
     "paths": {
       "web/*": ["app/web/*"],
-      "@/*": ["app/*"]
+      "app/*": ["app/*"]
     },
     "allowSyntheticDefaultImports": true
   },

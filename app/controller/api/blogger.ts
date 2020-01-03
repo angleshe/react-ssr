@@ -1,5 +1,5 @@
 import { Controller } from 'egg';
-import { GET } from '@/decorator/router.decorator';
+import { GET } from 'app/decorator/router.decorator';
 export default class BloggerController extends Controller {
   /**
    * @description 获取博主信息

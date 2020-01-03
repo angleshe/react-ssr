@@ -1,6 +1,6 @@
 import { app } from 'egg-mock/bootstrap';
-import { IResponseMessage } from '@/dto/ResponseMessageModel';
-import { IBloggerInfo } from '@/dto/BloggerInfoDto';
+import { IResponseMessage } from 'app/dto/ResponseMessageModel';
+import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
 import { Context } from 'egg';
 import assert from 'power-assert';
 describe('blog/bloggerInfoSelectService', () => {

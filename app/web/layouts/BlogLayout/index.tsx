@@ -4,8 +4,8 @@ import styles from './index.less';
 import Advertisement from './component/advertisement';
 import { BackTop } from 'antd';
 import FontIcon, { FontIconType } from 'web/components/FontIcon';
-import { ResCode } from '../../../dto/ResponseMessageModel';
-import { IBloggerInfo } from '../../../dto/BloggerInfoDto';
+import { ResCode } from 'app/dto/ResponseMessageModel';
+import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
 import { getBlogger } from 'web/services/blogger';
 export default class BlogLayout extends React.Component<IBloggerInfo> {
   public render(): ReactNode {

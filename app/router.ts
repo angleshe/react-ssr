@@ -1,5 +1,5 @@
 import { Application } from 'egg';
-import { bindRouterList } from '@/decorator/router.decorator';
+import { bindRouterList } from 'app/decorator/router.decorator';
 
 export default (app: Application): void => {
   const { controller, router } = app;

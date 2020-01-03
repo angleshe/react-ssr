@@ -22,7 +22,8 @@ const config: IConfig = {
     })
   ],
   alias: {
-    web: path.resolve(__dirname, '../')
+    web: path.resolve(__dirname, '../'),
+    app: path.resolve(__dirname, '../../')
   },
   routes,
   plugins: [

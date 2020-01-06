@@ -34,7 +34,7 @@ export default class BlogLayout extends React.Component<IBloggerInfo> {
     );
   }
   public static async getInitialProps(arg): Promise<IBloggerInfo | undefined> {
-    console.log(arg);
+    console.log(arg.context.redirect);
     const { code, data } = await getBlogger();
     if (code === ResCode.success) {
       console.log(data);

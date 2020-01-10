@@ -7,7 +7,18 @@ import FontIcon, { FontIconType } from 'web/components/FontIcon';
 import { ResCode } from 'app/dto/ResponseMessageModel';
 import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
 import { getBlogger } from 'web/services/blogger';
-export default class BlogLayout extends React.Component<IBloggerInfo> {
+// import { connect } from 'dva';
+import { IPropsDispatch } from 'web/models/connect';
+
+class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDispatch> {
+  constructor(p: Readonly<IBloggerInfo & IPropsDispatch>) {
+    super(p);
+    if (!this.props.uid) {
+      this.props.dispatch({
+        type: 'global/setServerError'
+      });
+    }
+  }
   public render(): ReactNode {
     return (
       <div className={styles['blog-layout']}>
@@ -33,13 +44,28 @@ export default class BlogLayout extends React.Component<IBloggerInfo> {
       </div>
     );
   }
-  public static async getInitialProps(arg): Promise<IBloggerInfo | undefined> {
-    console.log(arg.context.redirect);
+  public static async getInitialProps(params: any): Promise<IBloggerInfo | undefined> {
     const { code, data } = await getBlogger();
+    // console.log(params.store);
+    // await params.store.dispatch({
+    //   type: 'blogger/getBloggerInfo',
+    //   location: params.location
+    // });
+    // return undefined;
     if (code === ResCode.success) {
-      console.log(data);
       return data;
     }
     return undefined;
   }
+  // public componentDidMount(): void {
+  //   this.props.dispatch({
+  //     type: 'blogger/getBloggerInfo'
+  //   });
+  // }
 }
+
+// export default connect(({ blogger, loading }: IConnectState) => ({
+//   ...blogger,
+//   loading: loading.effects['blogger/getBloggerInfo']
+// }))(BlogLayout);
+export default BlogLayout;

@@ -32,9 +32,10 @@ const config: IConfig = {
       'umi-plugin-react',
       {
         antd: true,
-        dva: true,
-        dynamicImport: { webpackChunkName: true },
-        dll: true,
+        dva: {
+          immer: true
+        },
+        dynamicImport: false,
         locale: {
           baseNavigator: false,
           useLocalStorage: false
@@ -66,7 +67,16 @@ const config: IConfig = {
         }
       }
     ],
-    '@umijs/plugin-prerender'
+    [
+      '@umijs/plugin-prerender',
+      {
+        polyfill: false,
+        runInMockContext: {
+          // your server address, for prerender get data
+          url: 'http://localhost:7001'
+        }
+      }
+    ]
   ],
   chainWebpack: (config: IWebpackChainConfig): void => {
     config.module

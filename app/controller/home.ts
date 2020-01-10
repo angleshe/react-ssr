@@ -1,9 +1,9 @@
-import { Controller, Context } from 'egg';
+import { Controller } from 'egg';
 import path from 'path';
 import server from 'umi-server';
-import { IContext, IRenderOpts, IResult } from 'umi-server/lib';
 import { load } from 'cheerio';
 import { Helmet, HelmetData } from 'react-helmet';
+import { Result } from 'umi-server/lib';
 
 export default class HomeController extends Controller {
   /**
@@ -13,20 +13,6 @@ export default class HomeController extends Controller {
    * @memberof HomeController
    */
   private readonly root: string = path.join(__dirname, '..', 'public');
-  /**
-   * @description 渲染方法
-   * @private
-   * @memberof HomeController
-   */
-  private render: (ctx: IContext, renderOpts?: IRenderOpts) => Promise<IResult>;
-
-  constructor(ctx: Context) {
-    super(ctx);
-    this.render = server({
-      root: this.root,
-      postProcessHtml: this.handlerTitle
-    });
-  }
   /**
    * @description 设置标题
    * @author angle
@@ -47,11 +33,17 @@ export default class HomeController extends Controller {
   }
   public async index(): Promise<void> {
     const { ctx } = this;
-    const { ssrHtml } = await this.render({
+    const render = server({
+      root: this.root,
+      polyfill: false,
+      postProcessHtml: [this.handlerTitle],
+      dev: ctx.app.config.env === 'local'
+    });
+    const res: Result = await render({
       req: {
         url: ctx.request.url
       }
     });
-    ctx.body = await ctx.renderString(ssrHtml);
+    ctx.body = res.ssrHtml;
   }
 }

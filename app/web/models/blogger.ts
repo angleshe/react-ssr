@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IModel } from './connect';
 import { getBlogger } from 'web/services/blogger';
-import { ResCode, IResponseMessage } from 'app/dto/ResponseMessageModel';
-import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
+import { ResCode } from 'app/dto/ResponseMessageModel';
 export interface IBloggerModelState {
   id: number;
   nickname: string;

@@ -7,7 +7,7 @@ import FontIcon, { FontIconType } from 'web/components/FontIcon';
 import { ResCode } from 'app/dto/ResponseMessageModel';
 import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
 import { getBlogger } from 'web/services/blogger';
-// import { connect } from 'dva';
+import { connect } from 'dva';
 import { IPropsDispatch } from 'web/models/connect';
 
 class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDispatch> {
@@ -44,7 +44,7 @@ class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDisp
       </div>
     );
   }
-  public static async getInitialProps(params: any): Promise<IBloggerInfo | undefined> {
+  public static async getInitialProps(): Promise<IBloggerInfo | undefined> {
     const { code, data } = await getBlogger();
     // console.log(params.store);
     // await params.store.dispatch({
@@ -68,4 +68,4 @@ class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDisp
 //   ...blogger,
 //   loading: loading.effects['blogger/getBloggerInfo']
 // }))(BlogLayout);
-export default BlogLayout;
+export default connect()(BlogLayout);

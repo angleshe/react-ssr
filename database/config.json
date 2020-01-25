@@ -18,10 +18,11 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "1234567890",
+    "database": "dev_blog",
+    "host": "122.51.62.111",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "timezone": "+08:00"
   }
 }

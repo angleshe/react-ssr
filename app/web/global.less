@@ -2,23 +2,23 @@
 @import './utils/utils.less';
 @import './utils/reset.less';
 body {
-  background-color: @backgroundColor;
   color: @fontColor;
+  background-color: @backgroundColor;
   #root {
     font-size: @fontSize;
   }
   .main-btn {
     background-color: #FBB52E;
-    .wh(90Px, 40Px);
     border-radius: 3px;
+    .wh(90Px, 40Px);
     &:hover {
       background-color: @mainColor;
     }
   }
   a {
     &.main-btn {
-      text-align: center;
       line-height: 40Px;
+      text-align: center;
     }
   }
 }

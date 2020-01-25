@@ -8,7 +8,7 @@ import path from 'path';
 const config: IConfig = {
   ssr: true,
   outputPath: '../public',
-  treeShaking: true,
+  // treeShaking: true,
   publicPath: 'http://localhost:8000/',
   lessLoaderOptions: {
     javascriptEnabled: true,
@@ -27,7 +27,6 @@ const config: IConfig = {
   },
   routes,
   plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
       'umi-plugin-react',
       {
@@ -35,7 +34,9 @@ const config: IConfig = {
         dva: {
           immer: true
         },
-        dynamicImport: false,
+        dynamicImport: {
+          webpackChunkName: true
+        },
         locale: {
           baseNavigator: false,
           useLocalStorage: false
@@ -55,16 +56,7 @@ const config: IConfig = {
           {
             src: '<%= PUBLIC_PATH %>flexible.min.js'
           }
-        ],
-        routes: {
-          exclude: [
-            /models\//,
-            /services\//,
-            /model\.(t|j)sx?$/,
-            /service\.(t|j)sx?$/,
-            /components\//
-          ]
-        }
+        ]
       }
     ],
     [

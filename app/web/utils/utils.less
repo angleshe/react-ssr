@@ -5,8 +5,9 @@
  * @return {number} 带单位的数值
  */
 .function-add-unit(@num, @unit: px) {
-  return: if(get-unit(@num)=get-unit(0), unit(@num, @unit), @num);
+  return: if(get-unit(@num) =get-unit(0), unit(@num, @unit), @num);
 }
+
 /**
  * 删除单位
  * @param  {number} @num 要删除单位的值
@@ -15,6 +16,7 @@
 .function-remove-unit(@num) {
   return: unit(@num);
 }
+
 /**
  * 长宽
  * @param {number} @w width
@@ -24,25 +26,30 @@
   width: add-unit(@w);
   height: add-unit(@h);
 }
+
 /**
  * 文本居中
  * @param {number} @h height
  */
 .textCenter(@h) {
   @height: add-unit(@h);
+
   height: @height;
   line-height: @height;
   text-align: center;
 }
+
 /**
  * 文本垂直居中
  * @param  {number} @height 高度
  */
 .textVerCenter(@height) {
   @h: add-unit(@height);
+
   height: @h;
   line-height: @h;
 }
+
 /**
  * 固定高度定位居中
  */
@@ -52,6 +59,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 /**
  * 多行文本溢出截断省略
  * @param  {number} @line 行数
@@ -68,14 +76,17 @@
   -webkit-line-clamp: @line;
   -webkit-box-orient: vertical;
 }
+
 /**
  * 圆形dom
  * @param  {number} @size 直径
  */
 .circular(@size) {
   .wh(@size);
+
   border-radius: 50%;
 }
+
 /**
  * 文本换行
  */
@@ -83,6 +94,7 @@
   word-wrap: break-word;
   word-break: break-all;
 }
+
 /**
  * flex居中
  */

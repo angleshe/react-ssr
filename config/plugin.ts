@@ -1,6 +1,11 @@
-import 'tsconfig-paths/register';
+import { register } from 'tsconfig-paths';
 import 'reflect-metadata';
 import { EggPlugin } from 'egg';
+import tsConfig from '../tsconfig.json';
+register({
+  baseUrl: './',
+  paths: tsConfig.compilerOptions.paths
+});
 
 const plugin: EggPlugin = {
   // static: true,

@@ -18,7 +18,7 @@ export function connect<TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, S
 }
 
 export function test(): ClassDecorator {
-  return (target) => {
+  return (target): void => {
     console.log('xx->', Object.getOwnPropertyNames(target.prototype));
   };
 }

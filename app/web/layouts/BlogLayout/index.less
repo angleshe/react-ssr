@@ -2,25 +2,26 @@
   position: relative;
   .header {
     .wh(100%, 110);
+
     background: @mainColor url('../../assets/blog_banner@2x.png') repeat;
   }
   .container {
-    max-width: @maxContainerWidth;
-    margin: 0 auto;
     display: flex;
     align-items: flex-start;
+    max-width: @maxContainerWidth;
+    margin: 0 auto;
     .main-container {
       flex: 1;
+      min-height: 150vh;
       margin-top: 20px;
       background-color: #fff;
-      min-height: 150vh;
     }
     .side-bar {
+      position: static;
+      // top: 20px;
+      flex-shrink: 0;
       width: 310px;
       margin-left: 18px;
-      flex-shrink: 0;
-      position: static;
-      top: 20px;
       .bar-item {
         background-color: #fff;
         &:not(:nth-last-child(1)) {
@@ -31,17 +32,17 @@
   }
   .side-tools {
     position: absolute;
-    left: calc((100% - 1200Px) / 2 + 1230Px);
     bottom: 30Px;
+    left: calc((100% - 1200px) / 2 + 1230px);
     .go-to-icon {
+      display: block;
       width: 40Px;
       height: 40Px;
+      color: #fff;
+      font-size: 20px;
       line-height: 40Px;
       text-align: center;
-      display: block;
       background-color: #8C989D;
-      font-size: 20px;
-      color: #fff;
       &:hover {
         background-color: rgba(17,42,49,0.2);
       }

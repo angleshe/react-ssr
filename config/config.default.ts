@@ -50,6 +50,9 @@ export default (appInfo: EggAppInfo): PowerPartial<EggAppConfig> => {
       freezeTableName: true
     }
   };
+  config.security = {
+    csrf: false
+  };
   // the return config will combines to EggAppConfig
   return {
     ...config,

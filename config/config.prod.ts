@@ -7,7 +7,7 @@ export default (): PowerPartial<EggAppConfig> => {
     host: '122.51.62.111',
     port: 3306,
     database: 'dev_blog',
-    username: 'root',
+    username: 'react',
     password: '1234567890',
     define: {
       freezeTableName: true

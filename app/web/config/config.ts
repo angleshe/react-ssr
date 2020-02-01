@@ -34,9 +34,7 @@ const config: IConfig = {
         dva: {
           immer: true
         },
-        dynamicImport: {
-          webpackChunkName: true
-        },
+        dynamicImport: false,
         locale: {
           baseNavigator: false,
           useLocalStorage: false

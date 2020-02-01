@@ -4,21 +4,11 @@ import styles from './index.less';
 import Advertisement from './component/advertisement';
 import { BackTop } from 'antd';
 import FontIcon, { FontIconType } from 'web/components/FontIcon';
-import { ResCode } from 'app/dto/ResponseMessageModel';
 import { IBloggerInfo } from 'app/dto/BloggerInfoDto';
-import { getBlogger } from 'web/services/blogger';
 import { connect } from 'dva';
-import { IPropsDispatch } from 'web/models/connect';
-
-class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDispatch> {
-  constructor(p: Readonly<IBloggerInfo & IPropsDispatch>) {
-    super(p);
-    if (!this.props.uid) {
-      this.props.dispatch({
-        type: 'global/setServerError'
-      });
-    }
-  }
+import { IConnectState } from 'web/models/connect';
+import { IBloggerModelState } from 'web/models/blogger';
+class BlogLayout extends React.Component<IBloggerModelState> {
   public render(): ReactNode {
     return (
       <div className={styles['blog-layout']}>
@@ -44,28 +34,16 @@ class BlogLayout extends React.Component<(IBloggerInfo | undefined) & IPropsDisp
       </div>
     );
   }
-  public static async getInitialProps(): Promise<IBloggerInfo | undefined> {
-    const { code, data } = await getBlogger();
-    // console.log(params.store);
-    // await params.store.dispatch({
-    //   type: 'blogger/getBloggerInfo',
-    //   location: params.location
-    // });
-    // return undefined;
-    if (code === ResCode.success) {
-      return data;
-    }
-    return undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public static async getInitialProps(params: any): Promise<IBloggerInfo | void> {
+    return await params.store.dispatch({
+      type: 'blogger/getBloggerInfo',
+      location: params.location
+    });
   }
-  // public componentDidMount(): void {
-  //   this.props.dispatch({
-  //     type: 'blogger/getBloggerInfo'
-  //   });
-  // }
 }
 
-// export default connect(({ blogger, loading }: IConnectState) => ({
-//   ...blogger,
-//   loading: loading.effects['blogger/getBloggerInfo']
-// }))(BlogLayout);
-export default connect()(BlogLayout);
+export default connect(({ blogger }: IConnectState) => ({
+  ...blogger
+}))(BlogLayout);
+// export default connect()(BlogLayout);

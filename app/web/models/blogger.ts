@@ -15,13 +15,11 @@ const blogger: IModel<IBloggerModelState> = {
     faceImg: undefined
   },
   reducers: {
-    setBlogger(state, { payload, location }: any): any {
-      console.log('->xx', location);
+    setBlogger(state, { payload }: any): any {
       return {
         id: payload.id,
         nickname: payload.nickname,
-        faceImg: payload.faceImg,
-        location
+        faceImg: payload.faceImg
       };
     }
   },
@@ -31,8 +29,11 @@ const blogger: IModel<IBloggerModelState> = {
       if (res.code === ResCode.success) {
         yield put({
           type: 'setBlogger',
-          payload: res.data,
-          location: action.location
+          payload: res.data
+        });
+      } else {
+        yield put({
+          type: 'global/setServerError'
         });
       }
     }

@@ -10,12 +10,9 @@ const global: IModel<IGlobalModelState> = {
     serverError: false
   },
   reducers: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setServerError(state, params: any): any {
-      console.log('state', state);
+    setServerError(): IGlobalModelState {
       return {
-        serverError: true,
-        location: params.location
+        serverError: true
       };
     }
   }
